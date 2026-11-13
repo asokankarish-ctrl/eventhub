@@ -1,8 +1,4 @@
--- =====================================================
--- EventHub database
--- Member 1: [Name] - Database
--- Import this file in phpMyAdmin (Import tab)
--- =====================================================
+
 
 CREATE DATABASE IF NOT EXISTS eventhub_db;
 USE eventhub_db;
