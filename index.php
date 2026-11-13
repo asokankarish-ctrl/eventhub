@@ -1,8 +1,6 @@
 <?php
 
-
 require 'includes/db.php';
-
 
 $sql = "SELECT e.*, COUNT(r.id) AS registered
         FROM events e
