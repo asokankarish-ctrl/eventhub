@@ -1,8 +1,5 @@
 <?php
-/*
- * registrations.php - Table of all registrations (READ with JOIN)
- * Member 6: [Name] - Registrations list
- */
+
 
 require 'includes/db.php';
 
