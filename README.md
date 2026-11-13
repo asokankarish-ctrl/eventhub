@@ -37,7 +37,7 @@ eventhub/
 | 1 | N.Dilakshan | Database | `database.sql`, `includes/db.php` |
 | 2 | | Layout and navigation | `includes/header.php`, `includes/footer.php` |
 | 3 |A.Anojan | Events list | `index.php` |
-| 4 | | Registration form | `register.php` |
+| 4 | M. Pavithiran | Registration form | `register.php` |
 | 5 | R.Thushanan | Form processing | `save_registration.php` |
 | 6 | | Registrations list | `registrations.php` |
 | 7 | J.Athavan | Delete feature | `delete_registration.php` |
