@@ -1,18 +1,11 @@
 <?php
-/*
- * edit_registration.php - Change an existing registration (UPDATE)
- * Member 10: [Name] - Edit feature, README and GitHub
- *
- * This one file does two jobs:
- *   GET  edit_registration.php?id=5  -> show the form filled with registration 5
- *   POST (form submitted)            -> check the new values and UPDATE the row
- */
+
 
 require 'includes/db.php';
 
 $error = "";
 
-/* ---------- 1. Form submitted: check and save (POST) ---------- */
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $id        = (int)($_POST['id'] ?? 0);
@@ -22,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email     = trim($_POST['email'] ?? "");
     $phone     = trim($_POST['phone'] ?? "");
 
-    // Same rules as a new registration
+    
     if ($eventId <= 0) {
         $error = "Please choose an event.";
     } elseif (empty($name)) {
@@ -35,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Phone number must be exactly 10 digits.";
     }
 
-    // The same student cannot be in the same event twice
-    // (id <> ? skips this registration itself)
+   
     if ($error == "") {
         $stmt = mysqli_prepare($conn,
             "SELECT COUNT(*) AS total FROM registrations
@@ -51,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Save the changes with a prepared UPDATE
+
     if ($error == "") {
         $stmt = mysqli_prepare($conn,
             "UPDATE registrations
@@ -66,13 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // If there was an error, keep what the user typed so the form shows it again
+   
     $registration = [
         "id" => $id, "event_id" => $eventId, "student_name" => $name,
         "student_id" => $studentId, "email" => $email, "phone" => $phone
     ];
 
-/* ---------- 2. Page opened from the Edit link: load the row (GET) ---------- */
+
 } else {
     $id = (int)($_GET['id'] ?? 0);
 
@@ -89,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-/* ---------- 3. Events for the dropdown ---------- */
+
 $events = mysqli_query($conn, "SELECT id, title FROM events ORDER BY event_date");
 
 $pageTitle = "Edit Registration";
@@ -104,7 +96,7 @@ include 'includes/header.php';
         <p class="message error"><?php echo htmlspecialchars($error); ?></p>
     <?php } ?>
 
-    <!-- Same field ids as register.php, so js/script.js checks this form too -->
+
     <form id="registerForm" action="edit_registration.php" method="POST" novalidate>
 
         <input type="hidden" name="id" value="<?php echo $registration['id']; ?>">
