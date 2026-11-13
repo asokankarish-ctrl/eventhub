@@ -1,9 +1,5 @@
 <?php
-/*
- * db.php - Database connection
- * Member 1: [Name] - Database
- * Every page that needs the database starts with: require 'includes/db.php';
- */
+
 
 $host = "localhost";
 $user = "root";
