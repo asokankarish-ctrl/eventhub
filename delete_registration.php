@@ -1,9 +1,5 @@
 <?php
-/*
- * delete_registration.php - Removes one registration (DELETE)
- * Member 7: [Name] - Delete
- * This file shows no page. It deletes, then redirects.
- */
+
 
 require 'includes/db.php';
 
