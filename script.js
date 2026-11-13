@@ -1,10 +1,12 @@
 
+
 const currentPage = window.location.pathname.split("/").pop() || "index.php";
 document.querySelectorAll(".navbar nav a").forEach(function (link) {
     if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
     }
 });
+
 
 const searchBox = document.getElementById("searchBox");
 
@@ -24,6 +26,7 @@ if (searchBox) {
     });
 }
 
+
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
@@ -31,6 +34,7 @@ if (registerForm) {
         const errorBox = document.getElementById("formError");
         let message = "";
 
+        
         registerForm.querySelectorAll(".invalid").forEach(function (field) {
             field.classList.remove("invalid");
         });
@@ -65,6 +69,7 @@ if (registerForm) {
         }
     });
 }
+
 
 document.querySelectorAll(".delete-form").forEach(function (form) {
     form.addEventListener("submit", function (event) {
