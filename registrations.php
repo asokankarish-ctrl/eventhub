@@ -1,8 +1,5 @@
 <?php
-/*
- * registrations.php - Table of all registrations (READ with JOIN)
- * Member 6: [Name] - Registrations list
- */
+
 
 require 'includes/db.php';
 
@@ -24,9 +21,6 @@ include 'includes/header.php';
 
     <?php if (isset($_GET['success'])) { ?>
         <p class="message success">Registration saved successfully.</p>
-    <?php } ?>
-    <?php if (isset($_GET['updated'])) { ?>
-        <p class="message success">Registration updated.</p>
     <?php } ?>
     <?php if (isset($_GET['deleted'])) { ?>
         <p class="message success">Registration deleted.</p>
@@ -54,14 +48,11 @@ include 'includes/header.php';
                         <td><?php echo htmlspecialchars($row['event_title']); ?></td>
                         <td><?php echo htmlspecialchars($row['email']); ?></td>
                         <td><?php echo htmlspecialchars($row['phone']); ?></td>
-                        <td class="actions">
-                            <!-- Edit link: handled by edit_registration.php (Member 10) -->
-                            <a href="edit_registration.php?id=<?php echo $row['id']; ?>" class="btn btn-small">Edit</a>
-
+                        <td>
                             <!-- Delete form: handled by delete_registration.php (Member 7) -->
                             <form action="delete_registration.php" method="POST" class="delete-form">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="btn btn-small btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
                     </tr>
