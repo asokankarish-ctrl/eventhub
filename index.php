@@ -1,8 +1,5 @@
 <?php
-/*
- * index.php - Home page: shows all events from the database (READ)
- * Member 3: [Name] - Events list
- */
+
 
 require 'includes/db.php';
 
