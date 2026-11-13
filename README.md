@@ -41,6 +41,6 @@ eventhub/
 | 5 | R.Thushanan | Form processing | `save_registration.php` |
 | 6 | | Registrations list | `registrations.php` |
 | 7 | J.Athavan | Delete feature | `delete_registration.php` |
-| 8 | | Styling | `css/style.css` |
+| 8 | S.Santhosan | Styling | `css/style.css` |
 | 9 | T.Sangeethan | JavaScript | `js/script.js` |
 | 10 | S.Narendran | Edit feature and GitHub | `edit_registration.php`, `README.md` |
