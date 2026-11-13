@@ -1,26 +1,21 @@
 <?php
-/*
- * save_registration.php - Checks the form data and saves it (CREATE)
- * Member 5: [Name] - Form processing and validation
- * This file shows no page. It saves, then redirects.
- */
+
 
 require 'includes/db.php';
 
-// Only accept data sent by the form (POST)
+
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     header("Location: register.php");
     exit;
 }
 
-// 1. Read the form values
+
 $eventId   = (int)($_POST['event_id'] ?? 0);
 $name      = trim($_POST['student_name'] ?? "");
 $studentId = trim($_POST['student_id'] ?? "");
 $email     = trim($_POST['email'] ?? "");
 $phone     = trim($_POST['phone'] ?? "");
 
-// 2. Validate (never trust the browser)
 $error = "";
 
 if ($eventId <= 0) {
@@ -35,7 +30,6 @@ if ($eventId <= 0) {
     $error = "Phone number must be exactly 10 digits.";
 }
 
-// 3. Check the event still has seats, and the student is not already registered
 if ($error == "") {
     $stmt = mysqli_prepare($conn,
         "SELECT e.seats, COUNT(r.id) AS registered,
@@ -58,13 +52,11 @@ if ($error == "") {
     }
 }
 
-// 4. If anything is wrong, go back to the form with the message
 if ($error != "") {
     header("Location: register.php?event=" . $eventId . "&error=" . urlencode($error));
     exit;
 }
 
-// 5. Save with a prepared statement (prevents SQL injection)
 $stmt = mysqli_prepare($conn,
     "INSERT INTO registrations (event_id, student_name, student_id, email, phone)
      VALUES (?, ?, ?, ?, ?)");
