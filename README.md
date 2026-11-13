@@ -34,7 +34,7 @@ eventhub/
 
 | # | Name | Part | Files |
 |---|------|------|-------|
-| 1 | | Database | `database.sql`, `includes/db.php` |
+| 1 | N.Dilakshan | Database | `database.sql`, `includes/db.php` |
 | 2 | | Layout and navigation | `includes/header.php`, `includes/footer.php` |
 | 3 | | Events list | `index.php` |
 | 4 | | Registration form | `register.php` |
