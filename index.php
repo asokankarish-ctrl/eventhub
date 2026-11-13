@@ -3,7 +3,7 @@
 
 require 'includes/db.php';
 
-// Get every event plus how many students registered for it
+
 $sql = "SELECT e.*, COUNT(r.id) AS registered
         FROM events e
         LEFT JOIN registrations r ON r.event_id = e.id
