@@ -43,4 +43,4 @@ eventhub/
 | 7 | J.Athavan | Delete feature | `delete_registration.php` |
 | 8 | | Styling | `css/style.css` |
 | 9 | | JavaScript | `js/script.js` |
-| 10 | | Edit feature and GitHub | `edit_registration.php`, `README.md` |
+| 10 | S.Narendran | Edit feature and GitHub | `edit_registration.php`, `README.md` |
